@@ -24,8 +24,8 @@ function Jina() {
         });
       } else {
         setResult({
-          tribe: "Tribe Not Found",
-          funFact: "Sorry. This name is not in our database currently!",
+          tribe: "Name Not Found",
+          funFact: "This name is rare or from a mixed heritage!",
           name: name.charAt(0).toUpperCase() + name.slice(1),
         });
       }
@@ -56,18 +56,18 @@ function Jina() {
       </button>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center p-4">
+      <div className="flex-1 flex flex-col items-center p-4 overflow-y-auto">
         {/* Hero Section */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-8 px-4">
           <h1
-            className={`text-5xl font-bold mb-6 ${
+            className={`text-2xl sm:text-5xl font-bold mb-3 sm:mb-6 ${
               darkMode ? "text-green-400" : "text-green-700"
             }`}
           >
-            Kenyan Traditional Name Analyzer
+            Kenyan Name Analyzer 🇰🇪
           </h1>
           <p
-            className={`text-xl mb-8 ${
+            className={`text-sm sm:text-xl mb-4 sm:mb-8 ${
               darkMode ? "text-gray-300" : "text-gray-600"
             }`}
           >
@@ -77,16 +77,16 @@ function Jina() {
         </div>
 
         {/* Search and Results Container */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             {/* Search Section */}
             <div
-              className={`p-8 rounded-lg shadow-lg ${
+              className={`p-4 sm:p-8 rounded-lg shadow-lg ${
                 darkMode ? "bg-gray-800" : "bg-white"
               }`}
             >
               <h2
-                className={`text-2xl font-bold mb-6 ${
+                className={`text-xl sm:text-2xl font-bold mb-4 sm:mb-6 ${
                   darkMode ? "text-green-400" : "text-green-700"
                 }`}
               >
@@ -99,7 +99,7 @@ function Jina() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  className={`w-full p-4 pr-16 rounded-lg border-2 focus:outline-none focus:ring-2 transition-all text-lg ${
+                  className={`w-full p-3 sm:p-4 pr-12 sm:pr-16 rounded-lg border-2 focus:outline-none focus:ring-2 transition-all text-base sm:text-lg ${
                     darkMode
                       ? "bg-gray-700 border-gray-600 text-white focus:border-green-500"
                       : "border-gray-200 focus:border-green-500"
@@ -108,7 +108,7 @@ function Jina() {
                 <button
                   onClick={handleCheck}
                   disabled={loading || !name.trim()}
-                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 px-6 py-2 rounded-lg
+                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-lg
                     ${
                       loading
                         ? "opacity-50 cursor-not-allowed"
@@ -121,12 +121,12 @@ function Jina() {
                 </button>
               </div>
               <div
-                className={`mt-3 p-3 rounded-lg ${
+                className={`mt-3 p-2 sm:p-3 rounded-lg ${
                   darkMode ? "bg-gray-700/50" : "bg-green-50"
                 }`}
               >
                 <p
-                  className={`text-sm flex items-center ${
+                  className={`text-xs sm:text-sm flex items-center ${
                     darkMode ? "text-gray-300" : "text-green-700"
                   }`}
                 >
@@ -140,13 +140,15 @@ function Jina() {
             {/* Results Section */}
             {result && (
               <div
-                className={`p-8 rounded-lg shadow-lg transform transition-all duration-300 ease-out ${
+                className={`p-4 sm:p-8 rounded-lg shadow-lg transform transition-all duration-300 ease-out ${
                   darkMode ? "bg-gray-800" : "bg-white"
                 }`}
               >
-                <h2 className="text-3xl font-bold mb-4">{result.name}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+                  {result.name}
+                </h2>
                 <div
-                  className={`inline-block px-4 py-2 rounded-full text-lg mb-6 ${
+                  className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-base sm:text-lg mb-4 sm:mb-6 ${
                     darkMode
                       ? "bg-green-900 text-green-300"
                       : "bg-green-100 text-green-800"
@@ -155,7 +157,7 @@ function Jina() {
                   {result.tribe}
                 </div>
                 <p
-                  className={`text-xl ${
+                  className={`text-base sm:text-xl ${
                     darkMode ? "text-gray-300" : "text-gray-700"
                   }`}
                 >
@@ -168,12 +170,12 @@ function Jina() {
       </div>
       {/* Footer Note */}
       <div
-        className={`w-full py-4 text-center ${
+        className={`w-full py-3 sm:py-4 text-center ${
           darkMode ? "bg-gray-800/50" : "bg-green-50"
         }`}
       >
         <p
-          className={`text-sm flex items-center justify-center ${
+          className={`text-xs sm:text-sm flex items-center justify-center ${
             darkMode ? "text-gray-300" : "text-green-700"
           }`}
         >
